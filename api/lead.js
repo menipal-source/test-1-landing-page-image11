@@ -1,4 +1,5 @@
 import { neon } from '@neondatabase/serverless';
+import { checkBotId } from 'botid/server';
 
 // חותך רווחים, מגביל אורך, ומחזיר null אם ריק
 const clean = (value, max) => {
@@ -14,6 +15,18 @@ export default async function handler(req, res) {
   }
 
   try {
+    // BotID ברמת Basic - חינמית, לא מפעילה חיובי Deep Analysis
+    const verification = await checkBotId({
+      advancedOptions: {
+        checkLevel: 'basic',
+        headers: req.headers
+      }
+    });
+
+    if (verification.isBot) {
+      return res.status(403).json({ error: 'הבקשה נחסמה' });
+    }
+
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body ?? {});
 
     const name = clean(body.name, 120);

@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2"
+    "@neondatabase/serverless": "^1.0.2",
+    "botid": "^1.5.11"
+  },
+  "scripts": {
+    "botid:sync": "cp node_modules/botid/dist/client/core/index.mjs ./botid-client.mjs"
   }
 }

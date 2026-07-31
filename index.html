@@ -393,6 +393,16 @@ footer .logo{color:var(--cream);margin-bottom:10px}
   html{scroll-behavior:auto}
 }
 </style>
+
+<!-- Vercel BotID - הגנה מבוטים על טופס הלידים -->
+<script type="module">
+  import { initBotId } from '/botid-client.mjs';
+  initBotId({
+    protect: [
+      { path: '/api/lead', method: 'POST' }
+    ]
+  });
+</script>
 </head>
 <body>
 
