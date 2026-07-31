@@ -825,21 +825,43 @@ document.querySelectorAll('.rv').forEach((el, i) => {
   io.observe(el);
 });
 
-// form
-document.getElementById('lead-form').addEventListener('submit', function(e){
+// form — שולח ל-/api/lead ששומר בבסיס הנתונים
+const leadForm = document.getElementById('lead-form');
+const okBox = document.getElementById('ok');
+
+leadForm.addEventListener('submit', async function(e){
   e.preventDefault();
-  const name = this.name.value.trim();
-  const phone = this.phone.value.trim();
-  if (!name || !phone) {
+  const data = Object.fromEntries(new FormData(leadForm).entries());
+
+  if (!(data.name || '').trim() || !(data.phone || '').trim()) {
     alert('נא למלא שם וטלפון כדי שאוכל לחזור אליכם.');
     return;
   }
-  // TODO: החליפו בשליחה אמיתית (Formspree / API / EmailJS)
-  const data = Object.fromEntries(new FormData(this).entries());
-  console.log('LEAD:', data);
-  document.getElementById('ok').classList.add('show');
-  this.reset();
-  document.getElementById('ok').scrollIntoView({behavior:'smooth', block:'center'});
+
+  const btn = leadForm.querySelector('button[type="submit"]');
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'שולח…';
+
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) {
+      const info = await res.json().catch(() => ({}));
+      throw new Error(info.error || 'שגיאת שרת');
+    }
+    okBox.classList.add('show');
+    leadForm.reset();
+    okBox.scrollIntoView({behavior:'smooth', block:'center'});
+  } catch (err) {
+    alert('השליחה נכשלה: ' + err.message + '\nאפשר לפנות אליי בוואטסאפ במקום.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+  }
 });
 
 // package pre-select from pricing CTAs
