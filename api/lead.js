@@ -1,5 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 import { checkBotId } from 'botid/server';
+import { sendLeadEmail } from './_notify.js';
 
 // חותך רווחים, מגביל אורך, ומחזיר null אם ריק
 const clean = (value, max) => {
@@ -107,7 +108,12 @@ export default async function handler(req, res) {
       ? Math.round((new Date(weddingDate + 'T00:00:00Z') - new Date(row.created_at)) / 86400000)
       : null;
 
-    const webhookResult = await sendToWebhook({
+    const country = req.headers['x-vercel-ip-country'] ?? null;
+    const city = req.headers['x-vercel-ip-city']
+      ? decodeURIComponent(req.headers['x-vercel-ip-city'])
+      : null;
+
+    const lead = {
       lead_id: String(row.id),
       created_at: new Date(row.created_at).toISOString(),
       name,
@@ -124,16 +130,31 @@ export default async function handler(req, res) {
       days_until_wedding: daysUntil,
       package: pkg,
       message,
-      source: {
-        site: 'אימג׳11 - דף נחיתה',
-        referrer: clean(req.headers['referer'], 300),
-        user_agent: userAgent,
-        country: req.headers['x-vercel-ip-country'] ?? null,
-        city: req.headers['x-vercel-ip-city'] ? decodeURIComponent(req.headers['x-vercel-ip-city']) : null
-      }
-    });
+      country,
+      city
+    };
 
-    return res.status(200).json({ ok: true, id: String(row.id), notified: webhookResult.sent });
+    // Make ומייל רצים במקביל - אף אחד מהם לא יכול להפיל את השני
+    const [webhookResult, emailResult] = await Promise.all([
+      sendToWebhook({
+        ...lead,
+        source: {
+          site: 'אימג׳11 - דף נחיתה',
+          referrer: clean(req.headers['referer'], 300),
+          user_agent: userAgent,
+          country,
+          city
+        }
+      }),
+      sendLeadEmail(lead)
+    ]);
+
+    return res.status(200).json({
+      ok: true,
+      id: String(row.id),
+      notified: webhookResult.sent,
+      emailed: emailResult.sent
+    });
   } catch (err) {
     console.error('lead insert failed:', err);
     return res.status(500).json({ error: 'השמירה נכשלה, נסו שוב' });
