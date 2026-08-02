@@ -188,12 +188,16 @@ h1,h2,h3,.disp{font-family:var(--display);font-weight:400;line-height:.95;letter
 
 /* לוחית צילום בהירו */
 .plate{position:relative;overflow:hidden;background:var(--ink-2)}
+.plate img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:1;
+}
 .plate::before{
-  content:"";position:absolute;inset:0;z-index:2;
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:
-    radial-gradient(120% 100% at 30% 15%, rgba(255,240,220,.16), transparent 55%),
-    radial-gradient(140% 120% at 70% 100%, rgba(0,0,0,.5), transparent 62%),
-    repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.10) 2px 3px);
+    radial-gradient(125% 105% at 50% 20%, rgba(255,240,220,.07), transparent 58%),
+    radial-gradient(150% 130% at 50% 100%, rgba(28,18,10,.42), transparent 64%);
+  mix-blend-mode:multiply;opacity:.85;
 }
 .plate .slug{
   position:absolute;bottom:14px;right:16px;z-index:3;
@@ -338,9 +342,11 @@ section{padding-block:clamp(74px,10vw,150px);position:relative}
   opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;
 }
 .lb.open{opacity:1;visibility:visible}
-.lb-inner{width:min(1000px,100%);max-height:88vh;aspect-ratio:3/2;position:relative}
-.lb .plate{position:absolute;inset:0}
-.lb-cap{position:absolute;bottom:-42px;right:0;color:rgba(242,237,227,.72);font-size:.85rem;letter-spacing:.06em}
+.lb-inner{width:min(1080px,100%);position:relative;display:grid;place-items:center}
+.lb .plate{display:contents}
+.lb .plate::before{display:none}
+.lb .plate img{position:static;width:auto;height:auto;max-width:100%;max-height:82vh;object-fit:contain}
+.lb-cap{margin-top:16px;color:rgba(242,237,227,.72);font-size:.85rem;letter-spacing:.06em;text-align:center}
 .lb-x{position:absolute;top:24px;left:28px;color:var(--paper);font-size:2rem;line-height:1;font-family:var(--display)}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:var(--paper);font-size:2.4rem;font-family:var(--display);opacity:.55;transition:opacity .3s;padding:20px}
 .lb-nav:hover{opacity:1}
@@ -529,6 +535,7 @@ footer a:hover{color:var(--clay-lt)}
         </div>
       </div>
       <div class="hero-plate plate p1">
+        <img src="img/hero.jpg" alt="זוג טרי באור שקיעה, רגע לא מבוים" fetchpriority="high">
         <span class="idx">01</span>
         <span class="slug">01:47 · הריקוד האחרון</span>
       </div>
@@ -579,7 +586,7 @@ footer a:hover{color:var(--clay-lt)}
   <div class="shell">
     <div class="about-grid">
       <div class="about-plate rv">
-        <div class="plate p3"><span class="idx">02</span><span class="slug">הצלם</span></div>
+        <div class="plate p3"><img src="img/about.jpg" alt="מני פל, צלם החתונות, בעבודה" loading="lazy"><span class="idx">02</span><span class="slug">הצלם</span></div>
         <div class="stamp"><b>20</b><span>שנים מאחורי העדשה</span></div>
       </div>
       <div class="about-text rv">
@@ -624,6 +631,12 @@ footer a:hover{color:var(--clay-lt)}
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════════════════
+     שימו לב: התמונות בתיקיית img/ הן פלייסהולדרים שנוצרו ב-AI
+     (Freepik + שדרוג Magnific). הן אינן עבודות אמיתיות של הצלם.
+     יש להחליף אותן בתמונות אמיתיות לפני הפעלת קמפיינים.
+     ההחלפה: אותו שם קובץ ב-img/, או עדכון ה-src ו-data-src.
+     ══════════════════════════════════════════════════════════ -->
 <!-- ═══════ גלריה ═══════ -->
 <section id="work">
   <div class="shell">
@@ -635,14 +648,14 @@ footer a:hover{color:var(--clay-lt)}
       </div>
     </div>
     <div class="gal" id="gal">
-      <figure class="g rv" data-cap="נועה &amp; יונתן · כפר הנשיא" data-p="p1"><div class="plate p1"></div><figcaption>נועה &amp; יונתן · כפר הנשיא</figcaption></figure>
-      <figure class="g rv" data-cap="שיר &amp; דניאל · חוף פולג" data-p="p2"><div class="plate p2"></div><figcaption>שיר &amp; דניאל · חוף פולג</figcaption></figure>
-      <figure class="g rv" data-cap="מאיה &amp; עידו · אחוזת טל" data-p="p4"><div class="plate p4"></div><figcaption>מאיה &amp; עידו · אחוזת טל</figcaption></figure>
-      <figure class="g rv" data-cap="רותם &amp; אסף · יקב בגליל" data-p="p3"><div class="plate p3"></div><figcaption>רותם &amp; אסף · יקב בגליל</figcaption></figure>
-      <figure class="g rv" data-cap="ליהי &amp; טל · גן ורדים" data-p="p5"><div class="plate p5"></div><figcaption>ליהי &amp; טל · גן ורדים</figcaption></figure>
-      <figure class="g rv" data-cap="אור &amp; נועם · מדבר יהודה" data-p="p7"><div class="plate p7"></div><figcaption>אור &amp; נועם · מדבר יהודה</figcaption></figure>
-      <figure class="g rv" data-cap="הילה &amp; רועי · תל אביב" data-p="p6"><div class="plate p6"></div><figcaption>הילה &amp; רועי · תל אביב</figcaption></figure>
-      <figure class="g rv" data-cap="תמר &amp; גיא · חוות האלה" data-p="p8"><div class="plate p8"></div><figcaption>תמר &amp; גיא · חוות האלה</figcaption></figure>
+      <figure class="g rv" data-cap="נועה &amp; יונתן · כפר הנשיא" data-src="img/g1-couple.jpg"><div class="plate p1"><img src="img/g1-couple.jpg" alt="זוג טרי מתחבק באור זהוב" loading="lazy"></div><figcaption>נועה &amp; יונתן · כפר הנשיא</figcaption></figure>
+      <figure class="g rv" data-cap="שיר &amp; דניאל · חוף פולג" data-src="img/g6-golden.jpg"><div class="plate p2"><img src="img/g6-golden.jpg" alt="רגע שקט בין הכלה לחתן" loading="lazy"></div><figcaption>שיר &amp; דניאל · חוף פולג</figcaption></figure>
+      <figure class="g rv" data-cap="מאיה &amp; עידו · אחוזת טל" data-src="img/g3-details.jpg"><div class="plate p4"><img src="img/g3-details.jpg" alt="זר פרחי בר בידי הכלה" loading="lazy"></div><figcaption>מאיה &amp; עידו · אחוזת טל</figcaption></figure>
+      <figure class="g rv" data-cap="רותם &amp; אסף · יקב בגליל" data-src="img/g2-dance.jpg"><div class="plate p3"><img src="img/g2-dance.jpg" alt="ריקודים בשעת לילה מאוחרת" loading="lazy"></div><figcaption>רותם &amp; אסף · יקב בגליל</figcaption></figure>
+      <figure class="g rv" data-cap="ליהי &amp; טל · גן ורדים" data-src="img/g5-embrace.jpg"><div class="plate p5"><img src="img/g5-embrace.jpg" alt="חיבוק מרגש בחופה" loading="lazy"></div><figcaption>ליהי &amp; טל · גן ורדים</figcaption></figure>
+      <figure class="g rv" data-cap="אור &amp; נועם · מדבר יהודה" data-src="img/g4-dance2.jpg"><div class="plate p7"><img src="img/g4-dance2.jpg" alt="האורחים רוקדים סביב הזוג" loading="lazy"></div><figcaption>אור &amp; נועם · מדבר יהודה</figcaption></figure>
+      <figure class="g rv" data-cap="הילה &amp; רועי · תל אביב" data-src="img/g7-chuppah.jpg"><div class="plate p6"><img src="img/g7-chuppah.jpg" alt="חופה בשקיעה, מבט רחב" loading="lazy"></div><figcaption>הילה &amp; רועי · תל אביב</figcaption></figure>
+      <figure class="g rv" data-cap="תמר &amp; גיא · חוות האלה" data-src="img/g8-ceremony.jpg"><div class="plate p8"><img src="img/g8-ceremony.jpg" alt="טקס בחוץ בנוף ים תיכוני" loading="lazy"></div><figcaption>תמר &amp; גיא · חוות האלה</figcaption></figure>
     </div>
     <div style="text-align:center;margin-top:clamp(34px,4vw,56px)" class="rv">
       <a href="#contact" class="btn btn-out">רוצים לראות אלבום שלם מחתונה? דברו איתי</a>
@@ -895,7 +908,7 @@ footer a:hover{color:var(--clay-lt)}
   <button class="lb-nav lb-prev" id="lbP" aria-label="הקודם">‹</button>
   <button class="lb-nav lb-next" id="lbN" aria-label="הבא">›</button>
   <div class="lb-inner">
-    <div class="plate" id="lbImg"></div>
+    <div class="plate"><img id="lbImg" alt=""></div>
     <div class="lb-cap" id="lbCap"></div>
   </div>
 </div>
@@ -939,7 +952,8 @@ let at = 0;
 const show = (i) => {
   at = (i + items.length) % items.length;
   const el = items[at];
-  lbImg.className = 'plate ' + el.dataset.p;
+  lbImg.src = el.dataset.src;
+  lbImg.alt = el.dataset.cap;
   lbCap.textContent = el.dataset.cap;
 };
 const open = (i) => { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
