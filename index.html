@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>אימג׳11 · צילום חתונות | הרגעים שלכם, לנצח</title>
-<meta name="description" content="צילום חתונות שמרגיש כמו הסרט של החיים שלכם. חבילות מ־4,900 ₪, מסירה תוך 21 יום, פגישת היכרות ללא עלות. 300+ חתונות מאחורינו.">
+<meta name="description" content="צילום חתונות דוקומנטרי. חבילות מ־4,900 ₪, מסירה תוך 21 יום, פגישת היכרות ללא עלות. מאות זוגות מאז 2006.">
 
 <meta property="og:title" content="אימג׳11 · צילום חתונות">
 <meta property="og:description" content="לא רק תמונות - הזיכרון עצמו. חבילות מ־4,900 ₪.">
@@ -12,384 +12,463 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;700;900&family=Frank+Ruhl+Libre:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Assistant:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ══════════════════════════════════════════
+   אימג׳11 — ARCHIVE EDITION
+   נייר עצם · דיו · חימר
+   ══════════════════════════════════════════ */
+
 :root{
-  --ink:#12100e;
-  --ink-2:#1c1917;
-  --cream:#f7f3ec;
-  --cream-2:#efe7db;
-  --gold:#b08d57;
-  --gold-lt:#d4b483;
-  --muted:#7c736a;
-  --line:rgba(176,141,87,.28);
-  --serif:'Frank Ruhl Libre', Georgia, serif;
-  --sans:'Heebo', -apple-system, 'Segoe UI', sans-serif;
-  --maxw:1180px;
+  --paper:#f2ede3;
+  --paper-2:#e9e1d2;
+  --paper-3:#ded3c0;
+  --ink:#17140f;
+  --ink-2:#211c15;
+  --ink-soft:#6f6657;
+  --ink-faint:#9c9282;
+  --clay:#a8543a;
+  --clay-lt:#c47a5c;
+  --rule:rgba(23,20,15,.14);
+  --rule-dark:rgba(242,237,227,.16);
+
+  --display:'Bellefair', 'Frank Ruhl Libre', Georgia, serif;
+  --sans:'Assistant', -apple-system, 'Segoe UI', sans-serif;
+
+  --page:min(1440px, 100%);
+  --gut:clamp(20px, 5vw, 90px);
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--sans);
-  background:var(--cream);
+  background:var(--paper);
   color:var(--ink);
-  line-height:1.7;
+  line-height:1.65;
+  font-weight:300;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
-/* ============ typography ============ */
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;letter-spacing:-.01em}
-.eyebrow{
-  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--gold);font-weight:500;margin-bottom:20px;
-  display:flex;align-items:center;gap:14px;
+/* ── גרעין נייר על כל הדף ── */
+body::after{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
 }
-.eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:70px}
-.center .eyebrow{justify-content:center}
-.center .eyebrow::before{content:"";flex:1;height:1px;background:var(--line);max-width:70px}
 
-/* ============ buttons ============ */
+.shell{width:var(--page);margin-inline:auto;padding-inline:var(--gut)}
+
+/* ══ טיפוגרפיה ══ */
+h1,h2,h3,.disp{font-family:var(--display);font-weight:400;line-height:.95;letter-spacing:0}
+.disp-xl{font-size:clamp(3rem,7.2vw,6.6rem);line-height:.92}
+.disp-l{font-size:clamp(2.2rem,4.6vw,4.1rem);line-height:1}
+.disp-m{font-size:clamp(1.7rem,2.8vw,2.5rem)}
+
+.tag{
+  font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;
+  font-weight:500;color:var(--clay);display:flex;align-items:center;gap:16px;
+}
+.tag::after{content:"";width:clamp(28px,5vw,74px);height:1px;background:currentColor;opacity:.5}
+.tag.mid{justify-content:center}
+.tag.mid::before{content:"";width:clamp(28px,5vw,74px);height:1px;background:currentColor;opacity:.5}
+
+.lede{font-size:clamp(1.02rem,1.35vw,1.22rem);color:var(--ink-soft);max-width:52ch;font-weight:300}
+.num{font-family:var(--display);color:var(--clay);opacity:.5}
+
+/* ══ כפתורים ══ */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:17px 38px;border:none;cursor:pointer;
-  font-family:var(--sans);font-size:1rem;font-weight:500;
-  letter-spacing:.02em;border-radius:2px;
-  transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .25s;
-  position:relative;overflow:hidden;
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  padding:19px 42px;font-size:.94rem;font-weight:500;letter-spacing:.02em;
+  border:1px solid var(--ink);overflow:hidden;isolation:isolate;
+  transition:color .5s var(--ease),border-color .5s var(--ease);
 }
-.btn-gold{background:var(--gold);color:#fff;box-shadow:0 8px 26px -10px rgba(176,141,87,.85)}
-.btn-gold:hover{background:#9c7b48;transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(176,141,87,.95)}
-.btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(247,243,236,.35)}
-.btn-ghost:hover{background:rgba(247,243,236,.1);border-color:var(--cream)}
-.btn-dark{background:var(--ink);color:var(--cream)}
-.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);
+  transform:scaleY(1);transform-origin:bottom;transition:transform .5s var(--ease);
+}
+.btn:hover::before{transform:scaleY(0)}
+.btn{color:var(--paper)}
+.btn:hover{color:var(--ink)}
 
-/* ============ nav ============ */
-nav{
-  position:fixed;inset:0 0 auto 0;z-index:100;
-  padding:20px 0;transition:background .4s, padding .4s, box-shadow .4s;
-}
-nav.solid{background:rgba(247,243,236,.94);backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 1px 0 var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:var(--serif);font-size:1.35rem;color:var(--cream);transition:color .4s;letter-spacing:.02em}
-.logo small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.3em;opacity:.7;margin-top:2px}
-nav.solid .logo{color:var(--ink)}
-.nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-size:.9rem;color:rgba(247,243,236,.85);transition:color .4s;font-weight:300}
-nav.solid .nav-links a{color:var(--ink-2)}
-.nav-links a:hover{color:var(--gold-lt)}
-nav.solid .nav-links a:hover{color:var(--gold)}
-.nav-cta{
-  padding:11px 24px;border:1px solid rgba(247,243,236,.4);border-radius:2px;
-  font-size:.85rem!important;transition:all .3s;
-}
-nav.solid .nav-cta{border-color:var(--gold);color:var(--gold)!important}
-.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#fff!important}
-nav.solid .nav-cta:hover{color:#fff!important}
-@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+.btn-out{color:var(--ink);border-color:var(--ink)}
+.btn-out::before{transform:scaleY(0);transform-origin:top}
+.btn-out:hover::before{transform:scaleY(1)}
+.btn-out:hover{color:var(--paper)}
 
-/* ============ hero ============ */
-.hero{
-  min-height:100svh;position:relative;display:flex;align-items:center;
-  background:var(--ink);overflow:hidden;
+.btn-clay{border-color:var(--clay);color:var(--paper)}
+.btn-clay::before{background:var(--clay)}
+.btn-clay:hover{color:var(--clay)}
+
+.btn-ghost{color:var(--paper);border-color:var(--rule-dark)}
+.btn-ghost::before{background:var(--paper);transform:scaleY(0);transform-origin:top}
+.btn-ghost:hover{color:var(--ink);border-color:var(--paper)}
+.btn-ghost:hover::before{transform:scaleY(1)}
+
+/* ══ סרגל התקדמות ══ */
+.prog{position:fixed;top:0;right:0;height:2px;background:var(--clay);z-index:200;width:0}
+
+/* ══ ניווט ══ */
+.nav{
+  position:fixed;top:0;right:0;left:0;z-index:150;
+  transition:background .5s var(--ease), border-color .5s;
+  border-bottom:1px solid transparent;
 }
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(176,141,87,.22), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(212,180,131,.14), transparent 60%),
-    linear-gradient(160deg,#1c1917 0%,#12100e 55%,#0a0908 100%);
+.nav.stuck{background:rgba(242,237,227,.92);backdrop-filter:blur(20px) saturate(1.4);border-bottom-color:var(--rule)}
+.nav .shell{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px;transition:padding .5s var(--ease)}
+.nav.stuck .shell{padding-block:13px}
+
+.brand{display:flex;align-items:baseline;gap:11px;color:var(--paper);transition:color .5s}
+.nav.stuck .brand{color:var(--ink)}
+.brand b{font-family:var(--display);font-size:1.6rem;font-weight:400;letter-spacing:.02em}
+.brand i{font-style:normal;font-size:.6rem;letter-spacing:.3em;opacity:.6;text-transform:uppercase}
+
+.menu{display:flex;align-items:center;gap:clamp(14px,2.4vw,38px)}
+.menu a{
+  position:relative;font-size:.82rem;letter-spacing:.06em;color:rgba(242,237,227,.78);
+  transition:color .4s;padding-block:4px;
+}
+.nav.stuck .menu a{color:var(--ink-soft)}
+.menu a::after{
+  content:"";position:absolute;bottom:0;right:0;width:100%;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.menu a:hover::after{transform:scaleX(1);transform-origin:right}
+.menu a:hover{color:var(--clay-lt)}
+.nav.stuck .menu a:hover{color:var(--clay)}
+.menu a i{font-style:normal;font-size:.62rem;opacity:.45;margin-left:5px;font-family:var(--display)}
+.menu .cta{border:1px solid currentColor;padding:9px 20px;font-size:.78rem}
+.menu .cta::after{display:none}
+@media(max-width:900px){.menu a:not(.cta){display:none}}
+
+/* ══════ HERO ══════ */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:var(--paper);overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 85% 10%, rgba(168,84,58,.30), transparent 62%),
+  radial-gradient(90% 70% at 10% 90%, rgba(196,122,92,.14), transparent 60%),
+  linear-gradient(200deg,#241d16,#17140f 60%,#0d0b08);
 }
 .hero-bg::after{
-  content:"";position:absolute;inset:0;
-  background-image:radial-gradient(rgba(247,243,236,.045) 1px, transparent 1px);
-  background-size:4px 4px;
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(242,237,227,.022) 3px 4px);
 }
-.hero-grain{
-  position:absolute;inset:0;opacity:.5;pointer-events:none;
-  background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,transparent 45%);
-}
-.hero .wrap{position:relative;z-index:3;width:100%;padding-top:110px;padding-bottom:70px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.hero .shell{position:relative;z-index:3;width:100%;padding-block:clamp(110px,13vh,132px) clamp(56px,8vh,74px)}
 
-.hero h1{
-  font-size:clamp(2.7rem,6.2vw,4.6rem);color:var(--cream);
-  margin-bottom:24px;font-weight:300;
-}
-.hero h1 em{font-style:normal;color:var(--gold-lt);position:relative;display:inline-block}
-.hero h1 em::after{
-  content:"";position:absolute;bottom:.08em;right:0;width:100%;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.hero p.lead{
-  font-size:clamp(1.02rem,1.7vw,1.2rem);color:rgba(247,243,236,.76);
-  font-weight:200;max-width:46ch;margin-bottom:36px;
-}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-.hero-trust{display:flex;gap:34px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(247,243,236,.13)}
-.hero-trust div strong{
-  display:block;font-family:var(--serif);font-size:1.9rem;color:var(--gold-lt);
-  font-weight:400;line-height:1;
-}
-.hero-trust div span{font-size:.78rem;color:rgba(247,243,236,.55);letter-spacing:.06em}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:end}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:38px}}
 
-/* hero collage */
-.collage{position:relative;height:520px}
-@media(max-width:940px){.collage{height:380px;max-width:520px;margin:0 auto}}
-.frame{
-  position:absolute;border-radius:3px;overflow:hidden;
-  box-shadow:0 30px 70px -25px rgba(0,0,0,.85);
-  border:1px solid rgba(247,243,236,.1);
-}
-.frame::before{
-  content:attr(data-label);position:absolute;bottom:10px;right:12px;z-index:2;
-  font-size:.62rem;letter-spacing:.18em;color:rgba(247,243,236,.5);
-}
-.ph{width:100%;height:100%;position:relative}
-.ph::after{
-  content:"";position:absolute;inset:0;
-  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
-  background-size:3px 3px;
-}
-.ph-1{background:linear-gradient(145deg,#6b5b4a,#3d332b 50%,#211c17)}
-.ph-2{background:linear-gradient(145deg,#8a7560,#4a3d33 60%,#2a221c)}
-.ph-3{background:linear-gradient(145deg,#5c5346,#2e2823)}
-.ph-4{background:linear-gradient(160deg,#a08867,#5a4a3a 55%,#332a22)}
-.f1{width:58%;height:74%;top:0;right:0;animation:float 7s ease-in-out infinite}
-.f2{width:44%;height:50%;bottom:0;left:2%;animation:float 7s ease-in-out .9s infinite}
-.f3{width:34%;height:34%;bottom:24%;right:34%;animation:float 7s ease-in-out 1.8s infinite;z-index:3}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{color:var(--paper);margin:26px 0 0;letter-spacing:-.015em}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln > span{display:block;transform:translateY(105%);animation:rise 1.15s var(--ease) forwards}
+.hero h1 .ln:nth-child(1) > span{animation-delay:.15s}
+.hero h1 .ln:nth-child(2) > span{animation-delay:.27s}
+.hero h1 .ln:nth-child(3) > span{animation-delay:.39s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero h1 em{font-style:normal;color:var(--clay-lt)}
 
-.scroll-hint{
+.fade-up{opacity:0;transform:translateY(22px);animation:fu .9s var(--ease) forwards}
+@keyframes fu{to{opacity:1;transform:none}}
+.d1{animation-delay:.55s}.d2{animation-delay:.68s}.d3{animation-delay:.8s}.d4{animation-delay:.92s}
+
+.hero .lede{color:rgba(242,237,227,.72);margin-top:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(26px,4vh,38px)}
+@media(max-width:520px){.hero-cta .btn{flex:1;padding-inline:20px;font-size:.88rem}}
+
+/* לוח נתונים בהירו */
+.facts{border-top:1px solid var(--rule-dark);margin-top:clamp(34px,5vh,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.facts div{padding:20px 0 0}
+.facts .k{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,3.1rem);color:var(--clay-lt);line-height:1;display:block}
+.facts .v{font-size:clamp(.63rem,1.5vw,.74rem);letter-spacing:.1em;color:rgba(242,237,227,.5);text-transform:uppercase;margin-top:7px;display:block;line-height:1.4}
+
+/* לוחית צילום בהירו */
+.plate{position:relative;overflow:hidden;background:var(--ink-2)}
+.plate::before{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:
+    radial-gradient(120% 100% at 30% 15%, rgba(255,240,220,.16), transparent 55%),
+    radial-gradient(140% 120% at 70% 100%, rgba(0,0,0,.5), transparent 62%),
+    repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.10) 2px 3px);
+}
+.plate .slug{
+  position:absolute;bottom:14px;right:16px;z-index:3;
+  font-size:.6rem;letter-spacing:.24em;color:rgba(242,237,227,.62);text-transform:uppercase;
+}
+.plate .idx{position:absolute;top:12px;left:16px;z-index:3;font-family:var(--display);font-size:.95rem;color:rgba(242,237,227,.4)}
+/* ► לוחיות צילום — החליפו ב-<img> אמיתי ◄ */
+.p1{background:linear-gradient(152deg,#9c7f61,#4b3c2e 50%,#1f1811)}
+.p2{background:linear-gradient(120deg,#c39a76,#6b503a 52%,#2a1f16)}
+.p3{background:linear-gradient(165deg,#6a6a5e,#33342c 56%,#16170f)}
+.p4{background:linear-gradient(135deg,#caa585,#7a5b42 48%,#2e2117)}
+.p5{background:linear-gradient(200deg,#8d7f6d,#4a4034 55%,#1c1810)}
+.p6{background:linear-gradient(110deg,#a89a86,#575043 52%,#22201a)}
+.p7{background:linear-gradient(175deg,#7d5f4c,#3d2c22 54%,#181009)}
+.p8{background:linear-gradient(140deg,#b8ae99,#6d6553 50%,#2a271e)}
+
+.hero-plate{aspect-ratio:3/4;max-height:min(66vh,560px);align-self:end;animation:grow 1.5s var(--ease) .3s backwards}
+@keyframes grow{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@media(max-width:980px){.hero-plate{aspect-ratio:16/11}}
+
+.scroll-cue{
   position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;
-  color:rgba(247,243,236,.4);font-size:.68rem;letter-spacing:.28em;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+  font-size:.6rem;letter-spacing:.3em;color:rgba(242,237,227,.42);text-transform:uppercase;
 }
-.scroll-hint span{display:block;width:1px;height:38px;background:linear-gradient(var(--gold),transparent);margin:10px auto 0}
-@media(max-width:940px){.scroll-hint{display:none}}
+.scroll-cue span{width:1px;height:40px;background:linear-gradient(var(--clay-lt),transparent);animation:drop 2.2s ease-in-out infinite}
+@keyframes drop{0%,100%{transform:scaleY(.35);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+@media(max-width:980px){.scroll-cue{display:none}}
 
-/* ============ marquee ============ */
-.marquee{background:var(--ink-2);color:rgba(247,243,236,.5);padding:16px 0;overflow:hidden;white-space:nowrap}
-.marquee-track{display:inline-flex;gap:56px;animation:slide 32s linear infinite;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase}
-.marquee-track span{display:inline-flex;align-items:center;gap:56px}
-.marquee-track span::after{content:"◆";color:var(--gold);font-size:.6rem}
-@keyframes slide{from{transform:translateX(0)}to{transform:translateX(50%)}}
+/* ══ טיקר ══ */
+.ticker{background:var(--ink-2);color:rgba(242,237,227,.55);padding:15px 0;overflow:hidden;white-space:nowrap;border-block:1px solid var(--rule-dark)}
+.ticker-in{display:inline-flex;gap:44px;animation:slide 42s linear infinite;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+.ticker-in b{font-weight:400;display:inline-flex;align-items:center;gap:44px}
+.ticker-in b::after{content:"✦";color:var(--clay);font-size:.55rem}
+@keyframes slide{to{transform:translateX(50%)}}
 
-/* ============ sections ============ */
-section{padding:110px 0}
-@media(max-width:768px){section{padding:74px 0}}
-.center{text-align:center}
-.sec-head{max-width:660px;margin-bottom:60px}
-.center .sec-head{margin-inline:auto}
-.sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}
-.sec-head p{color:var(--muted);font-size:1.05rem;font-weight:300}
+/* ══ מבנה סקשן ══ */
+section{padding-block:clamp(74px,10vw,150px);position:relative}
+.head{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,6vw,90px);align-items:start;margin-bottom:clamp(42px,6vw,80px)}
+@media(max-width:820px){.head{grid-template-columns:1fr;gap:20px}}
+.head .tag{align-self:center}
+.head h2{letter-spacing:-.01em}
+.head .lede{margin-top:18px}
 
-/* pain / promise */
-.pain{background:var(--cream-2)}
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.pain-card{background:var(--cream-2);padding:38px 32px;transition:background .35s}
-.pain-card:hover{background:var(--cream)}
-.pain-card .num{font-family:var(--serif);font-size:2.6rem;color:var(--gold);opacity:.35;line-height:1;margin-bottom:14px}
-.pain-card h3{font-size:1.25rem;margin-bottom:10px}
-.pain-card p{color:var(--muted);font-size:.95rem;font-weight:300}
+/* ══ מניפסט ══ */
+.manifesto{background:var(--paper-2)}
+.entries{border-top:1px solid var(--rule)}
+.entry{
+  position:relative;
+  display:grid;grid-template-columns:auto .9fr 1.5fr;gap:clamp(16px,3.4vw,52px);
+  padding:clamp(28px,3.4vw,46px) 0;border-bottom:1px solid var(--rule);
+  align-items:baseline;transition:background .55s var(--ease),padding-inline .55s var(--ease);
+}
+.entry::before{
+  content:"";position:absolute;top:-1px;right:0;height:1px;width:100%;background:var(--clay);
+  transform:scaleX(0);transform-origin:right;transition:transform .7s var(--ease);
+}
+.entry:hover::before{transform:scaleX(1)}
+.entry:hover{background:rgba(255,255,255,.5);padding-inline:clamp(12px,1.8vw,28px)}
+@media(max-width:820px){.entry{grid-template-columns:auto 1fr;gap:8px 18px}.entry p{grid-column:1/-1;margin-top:6px}}
+.entry .num{font-size:clamp(1.6rem,2.4vw,2.6rem);line-height:1;transition:opacity .5s}
+.entry:hover .num{opacity:1}
+.entry h3{font-size:clamp(1.45rem,2.5vw,2.35rem)}
+.entry p{color:var(--ink-soft);font-size:1.04rem;max-width:46ch;line-height:1.72}
 
-/* story */
-.story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
-@media(max-width:940px){.story-grid{grid-template-columns:1fr;gap:40px}}
-.story-photo{height:540px;position:relative}
-@media(max-width:940px){.story-photo{height:400px}}
-.story-photo .ph{border-radius:3px;box-shadow:0 30px 60px -28px rgba(18,16,14,.55)}
-.story-badge{
-  position:absolute;bottom:-26px;left:-26px;background:var(--ink);color:var(--cream);
-  padding:24px 30px;border-radius:3px;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);
+/* ══ עליי ══ */
+.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(30px,6vw,90px);align-items:center}
+@media(max-width:980px){.about-grid{grid-template-columns:1fr;gap:36px}}
+.about-plate{position:relative}
+.about-plate .plate{aspect-ratio:3/4}
+.stamp{
+  position:absolute;left:-24px;bottom:-24px;background:var(--ink);color:var(--paper);
+  padding:24px 30px;z-index:4;
 }
-@media(max-width:520px){.story-badge{left:0;bottom:-18px;padding:18px 22px}}
-.story-badge strong{display:block;font-family:var(--serif);font-size:2rem;color:var(--gold-lt);font-weight:400;line-height:1}
-.story-badge span{font-size:.74rem;letter-spacing:.14em;opacity:.7}
-.story-text h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:22px}
-.story-text p{color:var(--muted);margin-bottom:18px;font-weight:300}
-.sig{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-top:26px;opacity:.8}
+@media(max-width:560px){.stamp{left:0;bottom:-16px;padding:17px 21px}}
+.stamp b{font-family:var(--display);font-size:2.3rem;color:var(--clay-lt);display:block;line-height:1;font-weight:400}
+.stamp span{font-size:.68rem;letter-spacing:.16em;opacity:.62;text-transform:uppercase}
+.about-text p{color:var(--ink-soft);margin-top:19px;max-width:58ch}
+.about-text p:first-of-type{
+  font-size:1.13rem;color:var(--ink);
+}
+.about-text p:first-of-type::first-letter{
+  font-family:var(--display);font-size:3.6em;float:right;line-height:.78;
+  margin:6px 0 0 12px;color:var(--clay);
+}
+.sig{font-family:var(--display);font-size:1.9rem;margin-top:32px;color:var(--ink);opacity:.85}
 
-/* process */
-.process{background:var(--ink);color:var(--cream)}
-.process .sec-head h2{color:var(--cream)}
-.process .sec-head p{color:rgba(247,243,236,.6)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:32px;position:relative}
-.step{position:relative;padding-top:30px}
-.step::before{
-  content:"";position:absolute;top:0;right:0;width:100%;height:1px;
-  background:linear-gradient(90deg,var(--gold),rgba(176,141,87,.08));
-}
-.step .n{
-  font-family:var(--serif);font-size:.8rem;color:var(--gold);letter-spacing:.2em;
-  margin-bottom:14px;display:block;
-}
-.step h3{font-size:1.3rem;margin-bottom:10px;color:var(--cream)}
-.step p{color:rgba(247,243,236,.6);font-size:.94rem;font-weight:300}
+/* ══ תהליך ══ */
+.process{background:var(--ink);color:var(--paper)}
+.process h2,.process h3{color:var(--paper)}
+.process .lede{color:rgba(242,237,227,.6)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule-dark);border:1px solid var(--rule-dark)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--ink);padding:clamp(24px,2.6vw,38px);transition:background .55s var(--ease)}
+.step:hover{background:var(--ink-2)}
+.step .num{display:block;font-size:2.1rem;line-height:1;margin-bottom:20px;opacity:.55}
+.step h3{font-size:1.28rem;margin-bottom:11px}
+.step p{color:rgba(242,237,227,.6);font-size:.93rem}
 
-/* gallery */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-.g-item{position:relative;overflow:hidden;border-radius:2px;cursor:pointer}
-.g-item .ph{transition:transform .7s cubic-bezier(.2,.8,.2,1)}
-.g-item:hover .ph{transform:scale(1.07)}
-.g-item .cap{
-  position:absolute;inset:auto 0 0 0;padding:22px 18px 16px;z-index:2;
-  background:linear-gradient(transparent,rgba(10,9,8,.85));
-  color:var(--cream);font-size:.85rem;letter-spacing:.06em;
-  opacity:0;transform:translateY(8px);transition:.4s;
+/* ══ גלריה ══ */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(8px,1vw,14px)}
+.g{position:relative;overflow:hidden;cursor:pointer;background:var(--ink-2)}
+.g .plate{position:absolute;inset:0;transition:transform 1.1s var(--ease),filter .8s}
+.g:hover .plate{transform:scale(1.06)}
+.g figcaption{
+  position:absolute;inset:auto 0 0 0;z-index:4;padding:26px 18px 15px;
+  background:linear-gradient(transparent,rgba(13,11,8,.88));
+  color:var(--paper);font-size:.82rem;letter-spacing:.05em;
+  opacity:0;transform:translateY(10px);transition:.5s var(--ease);
 }
-.g-item:hover .cap{opacity:1;transform:translateY(0)}
-.tall{grid-row:span 2}
-.g-item{aspect-ratio:1}
-.tall{aspect-ratio:1/2.06}
-@media(max-width:900px){.tall{grid-row:span 1;aspect-ratio:1}}
+.g:hover figcaption{opacity:1;transform:none}
+.g:nth-child(1){grid-column:span 5;aspect-ratio:4/5}
+.g:nth-child(2){grid-column:span 4;aspect-ratio:4/5}
+.g:nth-child(3){grid-column:span 3;aspect-ratio:3/5}
+.g:nth-child(4){grid-column:span 3;aspect-ratio:1/1}
+.g:nth-child(5){grid-column:span 5;aspect-ratio:5/4}
+.g:nth-child(6){grid-column:span 4;aspect-ratio:1/1}
+.g:nth-child(7){grid-column:span 7;aspect-ratio:16/9}
+.g:nth-child(8){grid-column:span 5;aspect-ratio:16/9}
+@media(max-width:820px){
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .g:nth-child(n){grid-column:span 1;aspect-ratio:1/1}
+  .g:nth-child(1),.g:nth-child(5){grid-column:span 2;aspect-ratio:4/3}
+}
 
-/* pricing */
-.pricing{background:var(--cream-2)}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-@media(max-width:980px){.plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
-.plan{
-  background:var(--cream);border:1px solid var(--line);border-radius:3px;
-  padding:40px 32px;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+/* סמן מותאם לגלריה */
+.cursor{
+  position:fixed;top:0;left:0;width:82px;height:82px;border-radius:50%;
+  background:var(--clay);color:var(--paper);display:grid;place-items:center;
+  font-size:.66rem;letter-spacing:.16em;pointer-events:none;z-index:400;
+  transform:translate(-50%,-50%) scale(0);transition:transform .38s var(--ease);
+  text-transform:uppercase;
 }
-.plan:hover{transform:translateY(-6px);box-shadow:0 26px 50px -26px rgba(18,16,14,.35)}
-.plan.featured{background:var(--ink);color:var(--cream);border-color:var(--gold);padding:52px 32px}
-.plan.featured h3{color:var(--cream)}
-.tag{
-  position:absolute;top:-13px;right:50%;transform:translateX(50%);
-  background:var(--gold);color:#fff;font-size:.68rem;letter-spacing:.18em;
-  padding:7px 18px;border-radius:2px;white-space:nowrap;font-weight:500;
+.cursor.on{transform:translate(-50%,-50%) scale(1)}
+@media(hover:none){.cursor{display:none}}
+
+/* לייטבוקס */
+.lb{
+  position:fixed;inset:0;z-index:500;background:rgba(13,11,8,.96);
+  display:grid;place-items:center;padding:5vmin;
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;
 }
-.plan h3{font-size:1.55rem;margin-bottom:6px}
-.plan .sub{font-size:.85rem;color:var(--muted);margin-bottom:26px}
-.plan.featured .sub{color:rgba(247,243,236,.55)}
-.price{font-family:var(--serif);font-size:3rem;font-weight:400;line-height:1;margin-bottom:4px}
-.plan.featured .price{color:var(--gold-lt)}
-.price small{font-size:1rem;font-family:var(--sans);font-weight:300}
-.price-note{font-size:.78rem;color:var(--muted);margin-bottom:28px}
-.plan.featured .price-note{color:rgba(247,243,236,.5)}
-.plan ul{list-style:none;margin-bottom:32px}
-.plan li{
-  display:flex;gap:11px;align-items:flex-start;padding:9px 0;
-  font-size:.93rem;font-weight:300;border-bottom:1px solid rgba(176,141,87,.13);
-}
-.plan.featured li{border-color:rgba(247,243,236,.09)}
-.plan li::before{content:"✦";color:var(--gold);font-size:.7rem;margin-top:6px;flex-shrink:0}
+.lb.open{opacity:1;visibility:visible}
+.lb-inner{width:min(1000px,100%);max-height:88vh;aspect-ratio:3/2;position:relative}
+.lb .plate{position:absolute;inset:0}
+.lb-cap{position:absolute;bottom:-42px;right:0;color:rgba(242,237,227,.72);font-size:.85rem;letter-spacing:.06em}
+.lb-x{position:absolute;top:24px;left:28px;color:var(--paper);font-size:2rem;line-height:1;font-family:var(--display)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:var(--paper);font-size:2.4rem;font-family:var(--display);opacity:.55;transition:opacity .3s;padding:20px}
+.lb-nav:hover{opacity:1}
+.lb-prev{right:2vmin}.lb-next{left:2vmin}
+
+/* ══ מחירים ══ */
+.pricing{background:var(--paper-2)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media(max-width:980px){.plans{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+.plan{background:var(--paper);padding:clamp(28px,2.8vw,44px);display:flex;flex-direction:column;transition:background .5s var(--ease)}
+.plan:hover{background:#fff}
+.plan.hero-plan{background:var(--ink);color:var(--paper)}
+.plan.hero-plan:hover{background:var(--ink-2)}
+.plan.hero-plan h3{color:var(--paper)}
+.plan .rib{font-size:.62rem;letter-spacing:.24em;color:var(--clay-lt);text-transform:uppercase;margin-bottom:14px;min-height:16px}
+.plan h3{font-size:1.85rem;margin-bottom:5px}
+.plan .sub{font-size:.85rem;color:var(--ink-faint);margin-bottom:26px;min-height:42px}
+.plan.hero-plan .sub{color:rgba(242,237,227,.5)}
+.plan .cost{font-family:var(--display);font-size:clamp(2.8rem,4.4vw,3.9rem);line-height:1;letter-spacing:-.01em}
+.plan.hero-plan .cost{color:var(--clay-lt)}
+.plan .cost small{font-family:var(--sans);font-size:.95rem;font-weight:300}
+.plan .terms{font-size:.76rem;color:var(--ink-faint);margin:8px 0 28px}
+.plan.hero-plan .terms{color:rgba(242,237,227,.45)}
+.plan ul{list-style:none;margin-bottom:30px;flex:1}
+.plan li{display:flex;gap:11px;padding:9px 0;font-size:.92rem;border-bottom:1px solid var(--rule);color:var(--ink-soft)}
+.plan.hero-plan li{border-color:var(--rule-dark);color:rgba(242,237,227,.82)}
+.plan li::before{content:"—";color:var(--clay);flex-shrink:0}
+.plan li b{font-weight:600;color:var(--ink)}
+.plan.hero-plan li b{color:var(--paper)}
 .plan .btn{width:100%}
-.price-foot{
-  text-align:center;margin-top:36px;color:var(--muted);font-size:.92rem;font-weight:300;
-}
-.price-foot strong{color:var(--ink);font-weight:500}
+.addons{margin-top:34px;text-align:center;color:var(--ink-soft);font-size:.92rem}
+.addons b{color:var(--ink);font-weight:600}
 
-/* testimonials */
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
-.quote{
-  background:var(--cream-2);border-radius:3px;padding:36px 30px;
-  border-top:2px solid var(--gold);position:relative;
-}
-.quote::before{
-  content:"”";position:absolute;top:6px;left:24px;font-family:var(--serif);
-  font-size:5rem;color:var(--gold);opacity:.18;line-height:1;
-}
-.stars{color:var(--gold);letter-spacing:3px;font-size:.85rem;margin-bottom:14px}
-.quote p{font-size:1rem;font-weight:300;margin-bottom:22px;position:relative;z-index:1}
-.who{display:flex;align-items:center;gap:12px}
-.avatar{
-  width:42px;height:42px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(140deg,var(--gold-lt),var(--gold));
-  display:grid;place-items:center;color:#fff;font-weight:500;font-size:.9rem;
-}
-.who strong{display:block;font-size:.93rem;font-weight:500}
-.who span{font-size:.78rem;color:var(--muted)}
+/* ══ המלצות ══ */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+.quote{border-top:2px solid var(--clay);padding-top:26px}
+.quote .stars{color:var(--clay);letter-spacing:4px;font-size:.8rem;margin-bottom:15px}
+.quote p{font-family:var(--display);font-size:1.32rem;line-height:1.42;margin-bottom:24px}
+.who{display:flex;align-items:center;gap:13px;border-top:1px solid var(--rule);padding-top:16px}
+.av{width:38px;height:38px;border-radius:50%;border:1px solid var(--clay);color:var(--clay);display:grid;place-items:center;font-family:var(--display);font-size:1.1rem;flex-shrink:0}
+.who b{display:block;font-size:.92rem;font-weight:600}
+.who span{font-size:.76rem;color:var(--ink-faint)}
 
-/* faq */
-.faq{background:var(--cream-2)}
-.faq-list{max-width:780px;margin:0 auto}
-details{border-bottom:1px solid var(--line);padding:4px 0}
+/* ══ שאלות ══ */
+.faq{background:var(--paper-2)}
+.qa{border-top:1px solid var(--rule)}
+details{border-bottom:1px solid var(--rule)}
 summary{
-  cursor:pointer;list-style:none;padding:22px 0;font-size:1.08rem;font-weight:500;
-  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  list-style:none;cursor:pointer;padding:24px 0;display:flex;gap:20px;align-items:baseline;
+  font-size:clamp(1.02rem,1.5vw,1.22rem);font-weight:400;transition:color .35s;
 }
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--serif);font-size:1.6rem;color:var(--gold);transition:transform .3s;flex-shrink:0}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--muted);font-weight:300;padding-bottom:22px;font-size:.97rem}
+summary:hover{color:var(--clay)}
+summary .q{font-family:var(--display);color:var(--clay);font-size:.9rem;opacity:.6;flex-shrink:0}
+summary .mk{margin-right:auto;font-family:var(--display);font-size:1.5rem;color:var(--clay);transition:transform .4s var(--ease);flex-shrink:0}
+details[open] summary .mk{transform:rotate(45deg)}
+details .ans{padding:0 0 26px 0;color:var(--ink-soft);max-width:74ch;font-size:.98rem;padding-right:36px}
 
-/* form / cta */
-.final{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
-.final::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 70% 10%, rgba(176,141,87,.2), transparent 65%);
-}
-.final .wrap{position:relative;z-index:2}
-.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-@media(max-width:940px){.final-grid{grid-template-columns:1fr;gap:40px}}
-.final h2{font-size:clamp(2rem,4.2vw,3.1rem);color:var(--cream);margin-bottom:18px}
-.final .lead{color:rgba(247,243,236,.68);font-weight:300;margin-bottom:30px}
-.final-list{list-style:none;display:grid;gap:12px}
-.final-list li{display:flex;gap:11px;font-size:.95rem;color:rgba(247,243,236,.8);font-weight:300}
-.final-list li::before{content:"✓";color:var(--gold-lt)}
+/* ══ טופס ══ */
+.contact{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(85% 65% at 78% 8%,rgba(168,84,58,.26),transparent 66%)}
+.contact .shell{position:relative;z-index:2}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,84px);align-items:center}
+@media(max-width:980px){.c-grid{grid-template-columns:1fr;gap:40px}}
+.contact h2{color:var(--paper)}
+.contact .lede{color:rgba(242,237,227,.68)}
+.promise{list-style:none;margin-top:32px;border-top:1px solid var(--rule-dark)}
+.promise li{padding:14px 0;border-bottom:1px solid var(--rule-dark);display:flex;gap:13px;font-size:.94rem;color:rgba(242,237,227,.8)}
+.promise li::before{content:"✓";color:var(--clay-lt)}
 
-form{background:rgba(247,243,236,.05);border:1px solid rgba(247,243,236,.12);border-radius:3px;padding:38px 32px;backdrop-filter:blur(6px)}
-.field{margin-bottom:16px}
-label{display:block;font-size:.8rem;letter-spacing:.08em;color:rgba(247,243,236,.65);margin-bottom:7px}
-input,select,textarea{
-  width:100%;padding:14px 16px;background:rgba(10,9,8,.45);
-  border:1px solid rgba(247,243,236,.15);border-radius:2px;
-  color:var(--cream);font-family:var(--sans);font-size:.97rem;transition:border .25s, background .25s;
+form{border:1px solid var(--rule-dark);padding:clamp(26px,3vw,42px);background:rgba(242,237,227,.035);backdrop-filter:blur(8px)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.f2{grid-template-columns:1fr}}
+.fld{position:relative;margin-bottom:18px}
+.fld label{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,227,.55);margin-bottom:8px}
+.fld input,.fld select,.fld textarea{
+  width:100%;padding:13px 2px;background:transparent;color:var(--paper);
+  border:none;border-bottom:1px solid var(--rule-dark);
+  font-family:var(--sans);font-size:1rem;font-weight:300;
+  transition:border-color .4s var(--ease);
 }
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(10,9,8,.7)}
-select option{background:var(--ink);color:var(--cream)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:480px){.row2{grid-template-columns:1fr}}
-form .btn{width:100%;margin-top:8px}
-.form-note{font-size:.76rem;color:rgba(247,243,236,.45);text-align:center;margin-top:14px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-bottom-color:var(--clay-lt)}
+.fld select option{background:var(--ink);color:var(--paper)}
+.fld textarea{resize:vertical;min-height:74px}
+form .btn{width:100%;margin-top:10px}
+.fine{font-size:.74rem;color:rgba(242,237,227,.42);text-align:center;margin-top:15px}
 .ok{
-  display:none;background:rgba(176,141,87,.16);border:1px solid var(--gold);
-  padding:16px;border-radius:2px;text-align:center;margin-bottom:18px;font-size:.95rem;
+  display:none;border:1px solid var(--clay);background:rgba(168,84,58,.16);
+  padding:17px;text-align:center;margin-bottom:20px;font-size:.95rem;
 }
-.ok.show{display:block}
+.ok.show{display:block;animation:fu .55s var(--ease)}
 
-/* footer */
-footer{background:#0a0908;color:rgba(247,243,236,.5);padding:56px 0 30px;font-size:.88rem}
-.f-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(247,243,236,.09)}
-.f-grid a:hover{color:var(--gold-lt)}
-footer .logo{color:var(--cream);margin-bottom:10px}
+/* ══ פוטר ══ */
+footer{background:#0d0b08;color:rgba(242,237,227,.5);padding:64px 0 30px;font-size:.87rem}
+.f-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid var(--rule-dark)}
+footer .brand{color:var(--paper);margin-bottom:12px}
 .f-links{display:flex;gap:26px;flex-wrap:wrap}
-.f-bottom{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.78rem;opacity:.7}
+footer a:hover{color:var(--clay-lt)}
+.f-bot{padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.76rem;opacity:.65}
 
-/* sticky mobile cta */
-.sticky-cta{
-  position:fixed;bottom:0;right:0;left:0;z-index:90;display:none;
-  background:var(--ink);padding:12px 16px;gap:10px;
-  box-shadow:0 -8px 24px rgba(0,0,0,.3);
+/* ══ מובייל ══ */
+.dock{
+  position:fixed;bottom:0;right:0;left:0;z-index:140;display:none;gap:1px;
+  background:var(--rule-dark);border-top:1px solid var(--rule-dark);
 }
-.sticky-cta .btn{flex:1;padding:14px 10px;font-size:.92rem}
-@media(max-width:820px){.sticky-cta{display:flex}body{padding-bottom:74px}}
+.dock a{flex:1;padding:16px 8px;text-align:center;font-size:.88rem;font-weight:500;background:var(--ink);color:var(--paper)}
+.dock a.acc{background:var(--clay)}
+@media(max-width:900px){.dock{display:flex}body{padding-bottom:56px}}
 
-/* whatsapp float */
 .wa{
-  position:fixed;bottom:26px;left:26px;z-index:95;width:56px;height:56px;border-radius:50%;
+  position:fixed;bottom:28px;left:28px;z-index:145;width:56px;height:56px;border-radius:50%;
   background:#25D366;display:grid;place-items:center;
-  box-shadow:0 10px 26px -8px rgba(37,211,102,.75);transition:transform .25s;
+  box-shadow:0 12px 30px -10px rgba(37,211,102,.7);transition:transform .35s var(--ease);
 }
-.wa:hover{transform:scale(1.08)}
+.wa:hover{transform:scale(1.09) rotate(-6deg)}
 .wa svg{width:29px;height:29px;fill:#fff}
-@media(max-width:820px){.wa{bottom:86px;left:16px;width:50px;height:50px}}
+@media(max-width:900px){.wa{bottom:74px;left:16px;width:48px;height:48px}}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1)}
+/* ══ חשיפה בגלילה ══ */
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
+
 @media(prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  .f1,.f2,.f3,.marquee-track{animation:none}
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .hero h1 .ln > span{transform:none}
+  .fade-up{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
@@ -406,105 +485,106 @@ footer .logo{color:var(--cream);margin-bottom:10px}
 </head>
 <body>
 
-<nav id="nav">
-  <div class="wrap">
-    <a href="#" class="logo">אימג׳11<small>צילום חתונות</small></a>
-    <div class="nav-links">
-      <a href="#story">עליי</a>
-      <a href="#gallery">תיק עבודות</a>
-      <a href="#pricing">מחירים</a>
-      <a href="#faq">שאלות</a>
-      <a href="#contact" class="nav-cta">בדיקת זמינות</a>
+<div class="prog" id="prog"></div>
+<div class="cursor" id="cursor">הגדל</div>
+
+<nav class="nav" id="nav">
+  <div class="shell">
+    <a href="#" class="brand"><b>אימג׳11</b><i>צילום חתונות</i></a>
+    <div class="menu">
+      <a href="#about"><i>01</i>עליי</a>
+      <a href="#work"><i>02</i>עבודות</a>
+      <a href="#pricing"><i>03</i>מחירים</a>
+      <a href="#faq"><i>04</i>שאלות</a>
+      <a href="#contact" class="cta">בדיקת זמינות</a>
     </div>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- ═══════ HERO ═══════ -->
 <header class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="wrap">
+  <div class="shell">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">צילום חתונות · כל הארץ</div>
-        <h1>יום אחד בחיים.<br>אלף רגעים.<br><em>ולא נפספס אף אחד.</em></h1>
-        <p class="lead">
+        <div class="tag fade-up">צילום חתונות · כל הארץ · מאז 2006</div>
+        <h1 class="disp-xl">
+          <span class="ln"><span>יום אחד</span></span>
+          <span class="ln"><span>בחיים. אלף</span></span>
+          <span class="ln"><span><em>רגעים.</em></span></span>
+        </h1>
+        <p class="lede fade-up d1">
           החתונה נגמרת ב־2 בלילה. התמונות נשארות לתמיד.
-          אני מצלם את החתונה שלכם כמו סרט - בלי פוזות מאולצות,
-          בלי "תסתכלו על המצלמה", רק אתם, כמו שאתם באמת.
+          אני מצלם דוקומנטרית - בלי פוזות מאולצות, בלי "תסתכלו על המצלמה".
+          רק אתם, כמו שאתם באמת.
         </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-gold">בדקו אם התאריך שלי פנוי ←</a>
-          <a href="#gallery" class="btn btn-ghost">צפו בתיק עבודות</a>
+        <div class="hero-cta fade-up d2">
+          <a href="#contact" class="btn btn-clay">בדקו אם התאריך פנוי ←</a>
+          <a href="#work" class="btn btn-ghost">תיק עבודות</a>
         </div>
-        <div class="hero-trust">
-          <div><strong>300+</strong><span>חתונות מאחורינו</span></div>
-          <div><strong>4.9★</strong><span>מתוך 187 ביקורות</span></div>
-          <div><strong>21</strong><span>ימים למסירה</span></div>
+        <div class="facts fade-up d3">
+          <div><b class="k">300+</b><span class="v">חתונות</span></div>
+          <div><b class="k">4.9</b><span class="v">מתוך 187 ביקורות</span></div>
+          <div><b class="k">21</b><span class="v">ימים למסירה</span></div>
         </div>
       </div>
-
-      <div class="collage">
-        <div class="frame f1" data-label="FIRST LOOK"><div class="ph ph-1"></div></div>
-        <div class="frame f2" data-label="THE VOWS"><div class="ph ph-2"></div></div>
-        <div class="frame f3" data-label="01:47 AM"><div class="ph ph-4"></div></div>
+      <div class="hero-plate plate p1">
+        <span class="idx">01</span>
+        <span class="slug">01:47 · הריקוד האחרון</span>
       </div>
     </div>
   </div>
-  <div class="scroll-hint">גללו<span></span></div>
+  <div class="scroll-cue">גללו<span></span></div>
 </header>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span>ללא תשלום מראש</span><span>מסירה תוך 21 יום</span><span>גיבוי כפול לכל קובץ</span>
-    <span>צלם מחליף במקרה חירום</span><span>כל הקבצים בהפרדה מלאה</span>
-    <span>ללא תשלום מראש</span><span>מסירה תוך 21 יום</span><span>גיבוי כפול לכל קובץ</span>
-    <span>צלם מחליף במקרה חירום</span><span>כל הקבצים בהפרדה מלאה</span>
+<div class="ticker">
+  <div class="ticker-in">
+    <b>ללא תשלום מראש</b><b>מסירה תוך 21 יום</b><b>גיבוי כפול לכל קובץ</b><b>צלם מחליף במקרה חירום</b><b>נסיעות כלולות בכל הארץ</b>
+    <b>ללא תשלום מראש</b><b>מסירה תוך 21 יום</b><b>גיבוי כפול לכל קובץ</b><b>צלם מחליף במקרה חירום</b><b>נסיעות כלולות בכל הארץ</b>
   </div>
 </div>
 
-<!-- ============ PAIN ============ -->
-<section class="pain">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">למה זה קריטי</div>
-      <h2>הפחד הכי גדול של כל זוג</h2>
-      <p>אי אפשר לעשות חתונה שנייה כדי לתקן תמונות. זה קורה פעם אחת - וזה חייב לצאת נכון.</p>
+<!-- ═══════ מניפסט ═══════ -->
+<section class="manifesto">
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">הבעיה</div>
+      <div>
+        <h2 class="disp-l">אי אפשר לעשות<br>חתונה שנייה.</h2>
+        <p class="lede">זה קורה פעם אחת, וזה חייב לצאת נכון. שלושת הדברים שזוגות מגלים מאוחר מדי.</p>
+      </div>
     </div>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="num">01</div>
-        <h3>תמונות שנראות כמו כולם</h3>
-        <p>אותן פוזות, אותה תאורה, אותו אלבום שכבר ראיתם ב־50 חתונות. החתונה שלכם לא גנרית - התמונות לא צריכות להיות.</p>
-      </div>
-      <div class="pain-card">
-        <div class="num">02</div>
-        <h3>צלם שנעלם אחרי החתונה</h3>
+    <div class="entries">
+      <article class="entry rv">
+        <span class="num">01</span>
+        <h3>תמונות שנראות<br>כמו של כולם</h3>
+        <p>אותן פוזות, אותה תאורה, אותו אלבום שכבר ראיתם בחמישים חתונות. החתונה שלכם לא גנרית - התמונות לא צריכות להיות.</p>
+      </article>
+      <article class="entry rv">
+        <span class="num">02</span>
+        <h3>צלם שנעלם<br>אחרי החתונה</h3>
         <p>שלושה חודשים של "עוד שבוע זה מוכן". אצלי המסירה חוזה־מחייבת: 21 יום עסקים, או שאתם מקבלים 20% חזרה.</p>
-      </div>
-      <div class="pain-card">
-        <div class="num">03</div>
-        <h3>הרגעים שפספסתם</h3>
-        <p>אמא בוכה בחופה, סבא רוקד ב־1:40 לפנות בוקר. אני מצלם עם צלם שני קבוע - כדי ששום רגע לא יישאר בלי עדות.</p>
-      </div>
+      </article>
+      <article class="entry rv">
+        <span class="num">03</span>
+        <h3>הרגעים<br>שפספסתם</h3>
+        <p>אמא בוכה בחופה, סבא רוקד ב־1:40 לפנות בוקר. אני מצלם עם צלם שני קבוע, כדי ששום רגע לא יישאר בלי עדות.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ STORY ============ -->
-<section id="story">
-  <div class="wrap">
-    <div class="story-grid">
-      <div class="story-photo rv">
-        <div class="ph ph-3" style="height:100%"></div>
-        <div class="story-badge">
-          <strong>20</strong>
-          <span>שנים מאחורי העדשה</span>
-        </div>
+<!-- ═══════ עליי ═══════ -->
+<section id="about">
+  <div class="shell">
+    <div class="about-grid">
+      <div class="about-plate rv">
+        <div class="plate p3"><span class="idx">02</span><span class="slug">הצלם</span></div>
+        <div class="stamp"><b>20</b><span>שנים מאחורי העדשה</span></div>
       </div>
-      <div class="story-text rv">
-        <div class="eyebrow">נעים להכיר</div>
-        <h2>אני לא מביים רגעים.<br>אני מחכה להם.</h2>
+      <div class="about-text rv">
+        <div class="tag">נעים להכיר</div>
+        <h2 class="disp-l" style="margin-top:22px">אני לא מביים<br>רגעים. אני<br>מחכה להם.</h2>
         <p>
           קוראים לי מני פל. קניתי את המצלמה הראשונה שלי לפני 20 שנה, וגיליתי מהר מאוד
           שמה שמושך אותי הוא לא התמונה המושלמת - אלא השנייה שלפניה.
@@ -517,87 +597,77 @@ footer .logo{color:var(--cream);margin-bottom:10px}
         </p>
         <p>
           ואם אתם בטוחים שאתם לא מצטלמים טוב - כמעט כל זוג אומר לי את זה בפגישה הראשונה,
-          ואף אחד מהם לא חזר על זה אחרי שראה את התמונות.
-          זו העבודה שלי, לא שלכם.
+          ואף אחד מהם לא חזר על זה אחרי שראה את התמונות. זו העבודה שלי, לא שלכם.
         </p>
-        <div class="sig">- מני פל</div>
+        <div class="sig">— מני פל</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
+<!-- ═══════ תהליך ═══════ -->
 <section class="process">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">איך זה עובד</div>
-      <h2>ארבעה צעדים. אפס הפתעות.</h2>
-      <p>מהשיחה הראשונה ועד הגלריה שתשלחו למשפחה - אתם יודעים בדיוק מה קורה ומתי.</p>
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">התהליך</div>
+      <div>
+        <h2 class="disp-l">ארבעה צעדים.<br>אפס הפתעות.</h2>
+        <p class="lede">מהשיחה הראשונה ועד הגלריה שתשלחו למשפחה - אתם יודעים בדיוק מה קורה ומתי.</p>
+      </div>
     </div>
     <div class="steps">
-      <div class="step rv">
-        <span class="n">שלב 01</span>
-        <h3>שיחת היכרות</h3>
-        <p>20 דקות בזום או קפה. מכירים, מבינים את הווייב של החתונה, בודקים זמינות. ללא עלות וללא התחייבות.</p>
-      </div>
-      <div class="step rv">
-        <span class="n">שלב 02</span>
-        <h3>סגירה ותכנון</h3>
-        <p>חוזה דיגיטלי ברור, מקדמה של 1,500 ₪ בלבד. חודש לפני - שיחת תכנון עם לוח זמנים מדויק לצילום.</p>
-      </div>
-      <div class="step rv">
-        <span class="n">שלב 03</span>
-        <h3>היום עצמו</h3>
-        <p>אני מגיע שעה לפני ההכנות ונשאר עד הריקוד האחרון. שני צלמים, שלוש מצלמות, גיבוי כפול בזמן אמת.</p>
-      </div>
-      <div class="step rv">
-        <span class="n">שלב 04</span>
-        <h3>המסירה</h3>
-        <p>תוך 72 שעות - 30 תמונות טיזר לרשתות. תוך 21 יום עסקים - הגלריה המלאה, ערוכה, בהורדה מלאה.</p>
-      </div>
+      <div class="step rv"><span class="num">01</span><h3>שיחת היכרות</h3><p>עשרים דקות בזום או קפה. מכירים, מבינים את הווייב, בודקים זמינות. ללא עלות וללא התחייבות.</p></div>
+      <div class="step rv"><span class="num">02</span><h3>סגירה ותכנון</h3><p>חוזה דיגיטלי ברור, מקדמה של 1,500 ₪ בלבד. חודש לפני - שיחת תכנון עם לוח זמנים מדויק.</p></div>
+      <div class="step rv"><span class="num">03</span><h3>היום עצמו</h3><p>מגיע שעה לפני ההכנות ונשאר עד הריקוד האחרון. שני צלמים, שלוש מצלמות, גיבוי כפול בזמן אמת.</p></div>
+      <div class="step rv"><span class="num">04</span><h3>המסירה</h3><p>תוך 72 שעות - 30 תמונות טיזר. תוך 21 יום עסקים - הגלריה המלאה, ערוכה, בהורדה מלאה.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
-<section id="gallery">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">תיק עבודות</div>
-      <h2>רגעים אמיתיים, מזוגות אמיתיים</h2>
-      <p>כל תמונה כאן היא רגע שקרה מעצמו. אף אחד מהם לא בוים.</p>
+<!-- ═══════ גלריה ═══════ -->
+<section id="work">
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">תיק עבודות</div>
+      <div>
+        <h2 class="disp-l">רגעים אמיתיים,<br>מזוגות אמיתיים.</h2>
+        <p class="lede">אף תמונה כאן לא בוימה. כולן קרו מעצמן, ואני פשוט הייתי שם בזמן.</p>
+      </div>
     </div>
-    <div class="gallery-grid">
-      <div class="g-item tall rv"><div class="ph ph-1" style="height:100%"></div><div class="cap">נועה &amp; יונתן · כפר הנשיא</div></div>
-      <div class="g-item rv"><div class="ph ph-2" style="height:100%"></div><div class="cap">שיר &amp; דניאל · חוף פולג</div></div>
-      <div class="g-item rv"><div class="ph ph-4" style="height:100%"></div><div class="cap">מאיה &amp; עידו · אחוזת טל</div></div>
-      <div class="g-item tall rv"><div class="ph ph-3" style="height:100%"></div><div class="cap">רותם &amp; אסף · יקב בגליל</div></div>
-      <div class="g-item rv"><div class="ph ph-3" style="height:100%"></div><div class="cap">ליהי &amp; טל · גן ורדים</div></div>
-      <div class="g-item rv"><div class="ph ph-1" style="height:100%"></div><div class="cap">אור &amp; נועם · מדבר יהודה</div></div>
-      <div class="g-item rv"><div class="ph ph-4" style="height:100%"></div><div class="cap">הילה &amp; רועי · תל אביב</div></div>
-      <div class="g-item rv"><div class="ph ph-2" style="height:100%"></div><div class="cap">תמר &amp; גיא · חוות האלה</div></div>
+    <div class="gal" id="gal">
+      <figure class="g rv" data-cap="נועה &amp; יונתן · כפר הנשיא" data-p="p1"><div class="plate p1"></div><figcaption>נועה &amp; יונתן · כפר הנשיא</figcaption></figure>
+      <figure class="g rv" data-cap="שיר &amp; דניאל · חוף פולג" data-p="p2"><div class="plate p2"></div><figcaption>שיר &amp; דניאל · חוף פולג</figcaption></figure>
+      <figure class="g rv" data-cap="מאיה &amp; עידו · אחוזת טל" data-p="p4"><div class="plate p4"></div><figcaption>מאיה &amp; עידו · אחוזת טל</figcaption></figure>
+      <figure class="g rv" data-cap="רותם &amp; אסף · יקב בגליל" data-p="p3"><div class="plate p3"></div><figcaption>רותם &amp; אסף · יקב בגליל</figcaption></figure>
+      <figure class="g rv" data-cap="ליהי &amp; טל · גן ורדים" data-p="p5"><div class="plate p5"></div><figcaption>ליהי &amp; טל · גן ורדים</figcaption></figure>
+      <figure class="g rv" data-cap="אור &amp; נועם · מדבר יהודה" data-p="p7"><div class="plate p7"></div><figcaption>אור &amp; נועם · מדבר יהודה</figcaption></figure>
+      <figure class="g rv" data-cap="הילה &amp; רועי · תל אביב" data-p="p6"><div class="plate p6"></div><figcaption>הילה &amp; רועי · תל אביב</figcaption></figure>
+      <figure class="g rv" data-cap="תמר &amp; גיא · חוות האלה" data-p="p8"><div class="plate p8"></div><figcaption>תמר &amp; גיא · חוות האלה</figcaption></figure>
     </div>
-    <div class="center" style="margin-top:44px">
-      <a href="#contact" class="btn btn-dark">רוצים לראות אלבום שלם מחתונה? שלחו לי הודעה</a>
+    <div style="text-align:center;margin-top:clamp(34px,4vw,56px)" class="rv">
+      <a href="#contact" class="btn btn-out">רוצים לראות אלבום שלם מחתונה? דברו איתי</a>
     </div>
   </div>
 </section>
 
-<!-- ============ PRICING ============ -->
+<!-- ═══════ מחירים ═══════ -->
 <section class="pricing" id="pricing">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">חבילות ומחירים</div>
-      <h2>מחירים שקופים. בלי כוכביות.</h2>
-      <p>כל המחירים כוללים מע״מ, נסיעות בכל הארץ, ועריכה מלאה. מה שכתוב - זה מה שתשלמו.</p>
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">חבילות</div>
+      <div>
+        <h2 class="disp-l">מחירים שקופים.<br>בלי כוכביות.</h2>
+        <p class="lede">כל המחירים כוללים מע״מ, נסיעות בכל הארץ ועריכה מלאה. מה שכתוב - זה מה שתשלמו.</p>
+      </div>
     </div>
 
     <div class="plans">
       <div class="plan rv">
+        <div class="rib"></div>
         <h3>אינטימית</h3>
-        <div class="sub">לחתונות קטנות עד 120 מוזמנים</div>
-        <div class="price">4,900<small> ₪</small></div>
-        <div class="price-note">או 4 תשלומים ללא ריבית</div>
+        <p class="sub">לחתונות קטנות, עד 120 מוזמנים</p>
+        <div class="cost">4,900<small> ₪</small></div>
+        <p class="terms">או 4 תשלומים ללא ריבית</p>
         <ul>
           <li>צלם ראשי · עד 6 שעות רצופות</li>
           <li>מההכנות ועד שעה אחרי החופה</li>
@@ -606,165 +676,164 @@ footer .logo{color:var(--cream);margin-bottom:10px}
           <li>30 תמונות טיזר תוך 72 שעות</li>
           <li>מסירה מלאה תוך 21 יום עסקים</li>
         </ul>
-        <a href="#contact" class="btn btn-dark">בדיקת זמינות</a>
+        <a href="#contact" class="btn btn-out">בדיקת זמינות</a>
       </div>
 
-      <div class="plan featured rv">
-        <div class="tag">הכי נבחרת · 7 מכל 10 זוגות</div>
+      <div class="plan hero-plan rv">
+        <div class="rib">הנבחרת · 7 מכל 10 זוגות</div>
         <h3>הקלאסית</h3>
-        <div class="sub">החבילה שמכסה את כל היום, מהבוקר עד הסוף</div>
-        <div class="price">7,900<small> ₪</small></div>
-        <div class="price-note">או 6 תשלומים ללא ריבית · מקדמה 1,500 ₪</div>
+        <p class="sub">כל היום מכוסה, מהבוקר ועד הריקוד האחרון</p>
+        <div class="cost">7,900<small> ₪</small></div>
+        <p class="terms">או 6 תשלומים · מקדמה 1,500 ₪</p>
         <ul>
-          <li><strong>שני צלמים</strong> · כיסוי מלא ללא הגבלת שעות</li>
+          <li><b>שני צלמים</b> · ללא הגבלת שעות</li>
           <li>800+ תמונות ערוכות ברזולוציה מלאה</li>
-          <li>סשן זוגי מקדים (Save the Date) - כלול</li>
+          <li>סשן זוגי מקדים - כלול</li>
           <li>סרטון היילייטס 3 דקות לרשתות</li>
           <li>צילומי דרון באתר האירוע</li>
-          <li>גלריה פרטית + הורדה מלאה לכל האורחים</li>
+          <li>גלריה פרטית להורדה לכל האורחים</li>
           <li>50 תמונות טיזר תוך 48 שעות</li>
-          <li>אחסון קבצים מגובה ל־5 שנים</li>
+          <li>אחסון מגובה ל־5 שנים</li>
         </ul>
-        <a href="#contact" class="btn btn-gold">אני רוצה את זו ←</a>
+        <a href="#contact" class="btn btn-clay">אני רוצה את זו ←</a>
       </div>
 
       <div class="plan rv">
+        <div class="rib"></div>
         <h3>הפקה מלאה</h3>
-        <div class="sub">צילום + וידאו, הכל תחת קורת גג אחת</div>
-        <div class="price">12,900<small> ₪</small></div>
-        <div class="price-note">או 8 תשלומים ללא ריבית</div>
+        <p class="sub">צילום ווידאו, הכל תחת קורת גג אחת</p>
+        <div class="cost">12,900<small> ₪</small></div>
+        <p class="terms">או 8 תשלומים ללא ריבית</p>
         <ul>
           <li>כל מה שבחבילת הקלאסית</li>
-          <li><strong>צוות וידאו מלא</strong> · 2 וידאוגרפים</li>
+          <li><b>צוות וידאו מלא</b> · 2 וידאוגרפים</li>
           <li>סרט חתונה מלא 15–20 דקות</li>
-          <li>טיזר קולנועי 60 שניות לאינסטגרם</li>
-          <li>הקלטת אודיו נפרדת של החופה והנאומים</li>
-          <li>אלבום פרימיום 30×30 עם 60 עמודים</li>
-          <li>שני אלבומי הורים קטנים - מתנה</li>
+          <li>טיזר קולנועי 60 שניות</li>
+          <li>הקלטת אודיו של החופה והנאומים</li>
+          <li>אלבום פרימיום 30×30, 60 עמודים</li>
+          <li>שני אלבומי הורים - מתנה</li>
           <li>סשן "יום שאחרי" בלוקיישן לבחירתכם</li>
         </ul>
-        <a href="#contact" class="btn btn-dark">בואו נדבר</a>
+        <a href="#contact" class="btn btn-out">בואו נדבר</a>
       </div>
     </div>
 
-    <p class="price-foot">
-      תוספות אפשריות: שעה נוספת <strong>450 ₪</strong> · מגנטים באירוע <strong>1,900 ₪</strong> ·
-      אלבום הורים נוסף <strong>690 ₪</strong> · חתונה בשישי/חג - ללא תוספת תשלום.
+    <p class="addons rv">
+      שעה נוספת <b>450 ₪</b> · מגנטים באירוע <b>1,900 ₪</b> ·
+      אלבום הורים נוסף <b>690 ₪</b> · חתונה בשישי או בחג - ללא תוספת.
     </p>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
+<!-- ═══════ המלצות ═══════ -->
 <section>
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">מה אומרים עלינו</div>
-      <h2>187 זוגות. 4.9 כוכבים.</h2>
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">מה אומרים</div>
+      <div><h2 class="disp-l">187 זוגות.<br>4.9 כוכבים.</h2></div>
     </div>
     <div class="quotes">
       <div class="quote rv">
         <div class="stars">★★★★★</div>
-        <p>פחדנו נורא מהצילומים כי שנינו לא מצטלמים טוב. מני פשוט נעלם ברקע - ובסוף קיבלנו תמונות שאני בוכה מהן עד היום. אמא שלי הדפיסה שמונה מהן.</p>
-        <div class="who"><div class="avatar">נ</div><div><strong>נועה &amp; יונתן</strong><span>מאי 2026 · כפר הנשיא</span></div></div>
+        <p>פחדנו נורא מהצילומים כי שנינו לא מצטלמים טוב. מני פשוט נעלם ברקע - ובסוף קיבלנו תמונות שאני בוכה מהן עד היום.</p>
+        <div class="who"><span class="av">נ</span><div><b>נועה &amp; יונתן</b><span>מאי 2026 · כפר הנשיא</span></div></div>
       </div>
       <div class="quote rv">
         <div class="stars">★★★★★</div>
-        <p>קיבלנו את הטיזר יומיים אחרי החתונה, כשעוד היינו בירח דבש. הגלריה המלאה הגיעה אחרי 17 יום. חברה שלי מחכה לצלם שלה כבר חמישה חודשים.</p>
-        <div class="who"><div class="avatar">ש</div><div><strong>שיר &amp; דניאל</strong><span>ספטמבר 2025 · חוף פולג</span></div></div>
+        <p>קיבלנו את הטיזר יומיים אחרי החתונה, כשעוד היינו בירח דבש. הגלריה המלאה הגיעה אחרי 17 יום.</p>
+        <div class="who"><span class="av">ש</span><div><b>שיר &amp; דניאל</b><span>ספטמבר 2025 · חוף פולג</span></div></div>
       </div>
       <div class="quote rv">
         <div class="stars">★★★★★</div>
-        <p>שילמנו יותר ממה שתכננו וזה הדבר היחיד בחתונה שלא הצטערנו עליו לרגע. הפרחים נבלו, האוכל נגמר - התמונות נשארו.</p>
-        <div class="who"><div class="avatar">מ</div><div><strong>מאיה &amp; עידו</strong><span>יוני 2025 · אחוזת טל</span></div></div>
+        <p>שילמנו יותר ממה שתכננו וזה הדבר היחיד בחתונה שלא הצטערנו עליו. הפרחים נבלו, האוכל נגמר - התמונות נשארו.</p>
+        <div class="who"><span class="av">מ</span><div><b>מאיה &amp; עידו</b><span>יוני 2025 · אחוזת טל</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+<!-- ═══════ שאלות ═══════ -->
 <section class="faq" id="faq">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">שאלות נפוצות</div>
-      <h2>כל מה ששאלתם אותי לפניכם</h2>
+  <div class="shell">
+    <div class="head rv">
+      <div class="tag">שאלות</div>
+      <div><h2 class="disp-l">כל מה ששאלו<br>אותי לפניכם.</h2></div>
     </div>
-    <div class="faq-list">
+    <div class="qa rv">
       <details open>
-        <summary>כמה מראש צריך לסגור תאריך?</summary>
-        <p>עונת השיא (מאי–יוני, ספטמבר–אוקטובר) נסגרת בדרך כלל 8–12 חודשים מראש. בחודשי החורף אפשר לפעמים גם 3 חודשים לפני. הדרך היחידה לדעת היא לבדוק - מלאו את הטופס ואחזור אליכם עם התשובה תוך 24 שעות.</p>
+        <summary><span class="q">01</span>כמה מראש צריך לסגור תאריך?<span class="mk">+</span></summary>
+        <p class="ans">עונת השיא (מאי–יוני, ספטמבר–אוקטובר) נסגרת בדרך כלל 8–12 חודשים מראש. בחורף אפשר לפעמים גם 3 חודשים לפני. הדרך היחידה לדעת היא לבדוק - מלאו את הטופס ואחזור אליכם תוך 24 שעות.</p>
       </details>
       <details>
-        <summary>מה קורה אם אתה חולה ביום החתונה?</summary>
-        <p>יש לי הסכם גיבוי קבוע עם שלושה צלמים בסגנון זהה, שכולם צילמו איתי בעבר. במקרה קיצון אחד מהם מגיע במקומי, בלי תוספת תשלום, ואני מבצע את העריכה בעצמי כדי לשמור על אותו סגנון. זה קרה פעמיים ב־20 שנה.</p>
+        <summary><span class="q">02</span>מה קורה אם אתה חולה ביום החתונה?<span class="mk">+</span></summary>
+        <p class="ans">יש לי הסכם גיבוי קבוע עם שלושה צלמים בסגנון זהה, שכולם צילמו איתי בעבר. במקרה קיצון אחד מהם מגיע במקומי, בלי תוספת תשלום, ואני מבצע את העריכה בעצמי כדי לשמור על אותו סגנון. זה קרה פעמיים ב־20 שנה.</p>
       </details>
       <details>
-        <summary>אנחנו ממש לא מצטלמים טוב. מה עושים?</summary>
-        <p>זו השאלה הכי נפוצה, וזו בדיוק הסיבה שאני עובד דוקומנטרית. אין סשן ארוך ואין הוראות במיקרופון. בחבילות הקלאסית וההפקה כלול סשן זוגי מקדים - פגישה קצרה שבה אתם מתרגלים להיות מולי, וביום החתונה זה כבר מרגיש טבעי.</p>
+        <summary><span class="q">03</span>אנחנו ממש לא מצטלמים טוב. מה עושים?<span class="mk">+</span></summary>
+        <p class="ans">זו השאלה הכי נפוצה, וזו בדיוק הסיבה שאני עובד דוקומנטרית. אין סשן ארוך ואין הוראות במיקרופון. בחבילות הקלאסית וההפקה כלול סשן זוגי מקדים - פגישה קצרה שבה אתם מתרגלים להיות מולי, וביום החתונה זה כבר מרגיש טבעי.</p>
       </details>
       <details>
-        <summary>אנחנו מקבלים את כל התמונות הגולמיות (RAW)?</summary>
-        <p>אתם מקבלים את כל התמונות התקינות - ערוכות, בצבע ובשחור־לבן, ברזולוציה מלאה וללא סימני מים, עם זכות שימוש מלאה. קבצי RAW גולמיים אינם נמסרים, מהסיבה שצלם לא מוסר עבודה לא־גמורה. תמונות פסולות (עיניים עצומות, פוקוס שגוי) מסוננות בשבילכם.</p>
+        <summary><span class="q">04</span>מקבלים את כל התמונות הגולמיות?<span class="mk">+</span></summary>
+        <p class="ans">אתם מקבלים את כל התמונות התקינות - ערוכות, בצבע ובשחור־לבן, ברזולוציה מלאה וללא סימני מים, עם זכות שימוש מלאה. קבצי RAW גולמיים אינם נמסרים, מהסיבה שצלם לא מוסר עבודה לא־גמורה. תמונות פסולות מסוננות בשבילכם.</p>
       </details>
       <details>
-        <summary>אפשר לפרוס לתשלומים?</summary>
-        <p>כן. מקדמה של 1,500 ₪ סוגרת את התאריך, והיתרה נפרסת עד 8 תשלומים ללא ריבית בכרטיס אשראי או בהוראת קבע. אין תשלום מלא מראש בשום חבילה.</p>
+        <summary><span class="q">05</span>אפשר לפרוס לתשלומים?<span class="mk">+</span></summary>
+        <p class="ans">כן. מקדמה של 1,500 ₪ סוגרת את התאריך, והיתרה נפרסת עד 8 תשלומים ללא ריבית בכרטיס אשראי או בהוראת קבע. אין תשלום מלא מראש בשום חבילה.</p>
       </details>
       <details>
-        <summary>אתה מצלם גם מחוץ למרכז?</summary>
-        <p>אני מצלם מאילת ועד מטולה, ונסיעות כלולות במחיר בכל הארץ. חתונות בחו״ל - בשמחה, בתיאום נפרד של טיסות ולינה.</p>
+        <summary><span class="q">06</span>אתה מצלם גם מחוץ למרכז?<span class="mk">+</span></summary>
+        <p class="ans">אני מצלם מאילת ועד מטולה, ונסיעות כלולות במחיר בכל הארץ. חתונות בחו״ל - בשמחה, בתיאום נפרד של טיסות ולינה.</p>
       </details>
       <details>
-        <summary>מה אם נצטרך לדחות את התאריך?</summary>
-        <p>דחייה עד 60 יום לפני האירוע - המקדמה עוברת לתאריך החדש במלואה, בכפוף לזמינות. בתוך 60 יום, אם אני מצליח למלא את התאריך שהתפנה, המקדמה עוברת גם כן. הכל כתוב בחוזה, בלי אותיות קטנות.</p>
+        <summary><span class="q">07</span>מה אם נצטרך לדחות את התאריך?<span class="mk">+</span></summary>
+        <p class="ans">דחייה עד 60 יום לפני האירוע - המקדמה עוברת לתאריך החדש במלואה, בכפוף לזמינות. בתוך 60 יום, אם אני מצליח למלא את התאריך שהתפנה, המקדמה עוברת גם כן. הכל כתוב בחוזה, בלי אותיות קטנות.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ============ FINAL CTA / FORM ============ -->
-<section class="final" id="contact">
-  <div class="wrap">
-    <div class="final-grid">
-      <div>
-        <div class="eyebrow">בדיקת זמינות</div>
-        <h2>התאריך שלכם עדיין פנוי?</h2>
-        <p class="lead">
+<!-- ═══════ יצירת קשר ═══════ -->
+<section class="contact" id="contact">
+  <div class="shell">
+    <div class="c-grid">
+      <div class="rv">
+        <div class="tag">בדיקת זמינות</div>
+        <h2 class="disp-l" style="margin-top:22px">התאריך שלכם<br>עדיין פנוי?</h2>
+        <p class="lede" style="margin-top:24px">
           מלאו את הפרטים ואחזור אליכם תוך 24 שעות עם תשובה ברורה על זמינות ומחיר.
-          אני סוגר עד 22 חתונות בשנה בלבד - כדי שכל זוג יקבל את כל תשומת הלב.
+          אני סוגר עד 22 חתונות בשנה בלבד, כדי שכל זוג יקבל את כל תשומת הלב.
         </p>
-        <ul class="final-list">
+        <ul class="promise">
           <li>תשובה תוך 24 שעות, גם אם התאריך תפוס</li>
-          <li>שיחת היכרות של 20 דקות - ללא עלות וללא התחייבות</li>
+          <li>שיחת היכרות של 20 דקות, ללא עלות</li>
           <li>הצעת מחיר מפורטת בכתב, בלי הפתעות</li>
           <li>אין שיחות מכירה לוחצות. אתם מחליטים בקצב שלכם.</li>
         </ul>
       </div>
 
-      <form id="lead-form" novalidate>
-        <div class="ok" id="ok">
-          ✦ תודה! קיבלתי את הפרטים ואחזור אליכם תוך 24 שעות.
-        </div>
-        <div class="row2">
-          <div class="field">
+      <form id="lead-form" novalidate class="rv">
+        <div class="ok" id="ok">✦ תודה! קיבלתי את הפרטים ואחזור אליכם תוך 24 שעות.</div>
+        <div class="f2">
+          <div class="fld">
             <label for="n1">שם החתן/הכלה</label>
             <input id="n1" name="name" type="text" placeholder="נועה" required>
           </div>
-          <div class="field">
+          <div class="fld">
             <label for="n2">שם בן/בת הזוג</label>
             <input id="n2" name="partner" type="text" placeholder="יונתן">
           </div>
         </div>
-        <div class="row2">
-          <div class="field">
+        <div class="f2">
+          <div class="fld">
             <label for="ph">טלפון</label>
             <input id="ph" name="phone" type="tel" placeholder="050-0000000" required>
           </div>
-          <div class="field">
+          <div class="fld">
             <label for="dt">תאריך החתונה</label>
             <input id="dt" name="date" type="date">
           </div>
         </div>
-        <div class="field">
+        <div class="fld">
           <label for="pk">החבילה שמעניינת אתכם</label>
           <select id="pk" name="package">
             <option>עוד לא בטוחים - רוצים להתייעץ</option>
@@ -773,38 +842,38 @@ footer .logo{color:var(--cream);margin-bottom:10px}
             <option>הפקה מלאה · 12,900 ₪</option>
           </select>
         </div>
-        <div class="field">
+        <div class="fld">
           <label for="ms">משהו שכדאי שאדע? (אופציונלי)</label>
-          <textarea id="ms" name="message" rows="3" placeholder="איפה החתונה, כמה אורחים, מה חשוב לכם..."></textarea>
+          <textarea id="ms" name="message" rows="2" placeholder="איפה החתונה, כמה אורחים, מה חשוב לכם..."></textarea>
         </div>
-        <button type="submit" class="btn btn-gold">שלחו - ואחזור תוך 24 שעות</button>
-        <p class="form-note">הפרטים שלכם נשארים אצלי בלבד. בלי ספאם, בלי רשימות תפוצה.</p>
+        <button type="submit" class="btn btn-clay">שלחו - ואחזור תוך 24 שעות</button>
+        <p class="fine">הפרטים שלכם נשארים אצלי בלבד. בלי ספאם, בלי רשימות תפוצה.</p>
       </form>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="f-grid">
+  <div class="shell">
+    <div class="f-top">
       <div>
-        <div class="logo">אימג׳11<small>צילום חתונות</small></div>
-        <p style="max-width:34ch;font-weight:300">צילום חתונות דוקומנטרי בכל הארץ. 300+ זוגות מאז 2006.</p>
+        <div class="brand"><b>אימג׳11</b><i>צילום חתונות</i></div>
+        <p style="max-width:34ch">צילום חתונות דוקומנטרי בכל הארץ. מאות זוגות מאז 2006.</p>
       </div>
       <div class="f-links">
-        <a href="#story">עליי</a>
-        <a href="#gallery">תיק עבודות</a>
+        <a href="#about">עליי</a>
+        <a href="#work">עבודות</a>
         <a href="#pricing">מחירים</a>
         <a href="#faq">שאלות</a>
         <a href="#contact">יצירת קשר</a>
       </div>
       <div>
-        <a href="tel:+972500000000" style="display:block;margin-bottom:6px">050-000-0000</a>
-        <a href="mailto:hello@image11.co.il" style="display:block;margin-bottom:6px">hello@image11.co.il</a>
+        <a href="tel:+972500000000" style="display:block;margin-bottom:7px">050-000-0000</a>
+        <a href="mailto:hello@image11.co.il" style="display:block;margin-bottom:7px">hello@image11.co.il</a>
         <a href="https://instagram.com" target="_blank" rel="noopener">Instagram ↗</a>
       </div>
     </div>
-    <div class="f-bottom">
+    <div class="f-bot">
       <span>© 2026 אימג׳11 · כל הזכויות שמורות</span>
       <span>תנאי שימוש · מדיניות פרטיות</span>
     </div>
@@ -815,28 +884,79 @@ footer .logo{color:var(--cream);margin-bottom:10px}
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2"/></svg>
 </a>
 
-<div class="sticky-cta">
-  <a href="tel:+972500000000" class="btn btn-ghost">חייגו</a>
-  <a href="#contact" class="btn btn-gold">בדיקת זמינות</a>
+<div class="dock">
+  <a href="tel:+972500000000">חייגו</a>
+  <a href="#contact" class="acc">בדיקת זמינות</a>
+</div>
+
+<!-- לייטבוקס -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="תצוגת תמונה">
+  <button class="lb-x" id="lbX" aria-label="סגור">✕</button>
+  <button class="lb-nav lb-prev" id="lbP" aria-label="הקודם">‹</button>
+  <button class="lb-nav lb-next" id="lbN" aria-label="הבא">›</button>
+  <div class="lb-inner">
+    <div class="plate" id="lbImg"></div>
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
 </div>
 
 <script>
-// nav background on scroll
-const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('solid', window.scrollY > 80);
+/* ── סרגל התקדמות + ניווט דביק ── */
+const nav = document.getElementById('nav'), prog = document.getElementById('prog');
+const onScroll = () => {
+  const y = window.scrollY;
+  nav.classList.toggle('stuck', y > 70);
+  const max = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+};
 onScroll();
-window.addEventListener('scroll', onScroll, {passive:true});
+addEventListener('scroll', onScroll, {passive:true});
 
-// scroll reveal
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
+/* ── חשיפה בגלילה ── */
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.rv').forEach((el, i) => {
-  el.style.transitionDelay = (i % 4) * 90 + 'ms';
+  el.style.transitionDelay = (i % 4) * 80 + 'ms';
   io.observe(el);
 });
 
-// form - שולח ל-/api/lead ששומר בבסיס הנתונים
+/* ── סמן מותאם על הגלריה ── */
+const cur = document.getElementById('cursor');
+let curOn = false;
+document.querySelectorAll('.g').forEach(g => {
+  g.addEventListener('mouseenter', () => { curOn = true; cur.classList.add('on'); });
+  g.addEventListener('mouseleave', () => { curOn = false; cur.classList.remove('on'); });
+});
+addEventListener('mousemove', (e) => {
+  if (curOn) { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; }
+}, {passive:true});
+
+/* ── לייטבוקס ── */
+const items = [...document.querySelectorAll('.g')];
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+let at = 0;
+const show = (i) => {
+  at = (i + items.length) % items.length;
+  const el = items[at];
+  lbImg.className = 'plate ' + el.dataset.p;
+  lbCap.textContent = el.dataset.cap;
+};
+const open = (i) => { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+items.forEach((el, i) => el.addEventListener('click', () => open(i)));
+document.getElementById('lbX').onclick = close;
+document.getElementById('lbP').onclick = (e) => { e.stopPropagation(); show(at + 1); };
+document.getElementById('lbN').onclick = (e) => { e.stopPropagation(); show(at - 1); };
+lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+addEventListener('keydown', (e) => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') close();
+  if (e.key === 'ArrowRight') show(at + 1);
+  if (e.key === 'ArrowLeft') show(at - 1);
+});
+
+/* ── טופס → /api/lead ── */
 const leadForm = document.getElementById('lead-form');
 const okBox = document.getElementById('ok');
 
@@ -875,7 +995,7 @@ leadForm.addEventListener('submit', async function(e){
   }
 });
 
-// package pre-select from pricing CTAs
+/* ── בחירת חבילה אוטומטית מכפתורי המחירון ── */
 document.querySelectorAll('.plan a[href="#contact"]').forEach(a => {
   a.addEventListener('click', () => {
     const title = a.closest('.plan').querySelector('h3').textContent.trim();
